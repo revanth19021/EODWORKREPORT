@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOD WORK REPORT</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/fetch_sorted_by_number">Search and Fetch Data</a></li>
+        </ul>
+    </nav>
+
+    <h1>Submit Your Details</h1>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <form id="form" method="POST" action="/submit">
+        <label for="number">CT ID:</label>
+        <input type="number" id="number" name="number" required><br><br>
+
+        <label for="teamlead">Team Lead:</label>
+        <input type="text" id="teamlead" name="teamlead" required><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="college_visited">Any College Visited:</label>
+        <input type="radio" id="yes" name="college_visited" value="Yes" required> Yes
+        <input type="radio" id="no" name="college_visited" value="No" required> No<br><br>
+
+        <label for="forenoon">Forenoon (Details):</label>
+        <textarea id="forenoon" name="forenoon" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="afternoon">Afternoon (Details):</label>
+        <textarea id="afternoon" name="afternoon" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

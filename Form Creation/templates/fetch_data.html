@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Sorted Data</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/fetch_sorted_by_number">Fetch Data</a></li>
+        </ul>
+    </nav>
+
+    <h1>Search and Fetch Data by CT ID</h1>
+    <form method="GET" action="/fetch_sorted_by_number">
+        <label for="searchID">Enter CT ID to Search:</label>
+        <input type="number" id="searchID" name="number" placeholder="Enter CT ID" required><br><br>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Fetched Data</h2>
+    <div id="dataContainer">
+        {% if data %}
+            {% for item in data %}
+                <p>
+                    <strong>CT ID:</strong> {{ item['CT-ID'] }}<br>
+                    <strong>Team Lead:</strong> {{ item['Team Lead'] }}<br>
+                    <strong>Name:</strong> {{ item['name'] }}<br>
+                    <strong>Date:</strong> {{ item['date'] }}<br>
+                    <strong>College Visited:</strong> {{ item['college_visited'] }}<br>
+                    <strong>Forenoon:</strong> {{ item['forenoon'] }}<br>
+                    <strong>Afternoon:</strong> {{ item['afternoon'] }}
+                </p>
+                <hr>
+            {% endfor %}
+        {% elif message %} 
+            <p>{{ message }}</p> 
+        {% endif %}
+    </div>
+</body>
+</html>
